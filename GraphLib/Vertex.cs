@@ -19,16 +19,11 @@
                 Weight = weight
             });
 
-            
-            if (!Edges.Exists(e => e.Parent == child && e.Child == this))
+
+            if (!child.Edges.Exists(e => e.Parent == child && e.Child == this))
             {
-                
-                Edges.Add(new Edge
-                {
-                    Parent = child,
-                    Child = this,
-                    Weight = weight
-                });
+
+                child.AddEdge(this,weight);
             }
 
             return this;
